@@ -1,24 +1,21 @@
 # flow-test
 
-[![CI Status](http://img.shields.io/travis/gnithin/flow-test.svg?style=flat)](https://travis-ci.org/gnithin/flow-test)
-[![Version](https://img.shields.io/cocoapods/v/flow-test.svg?style=flat)](http://cocoapods.org/pods/flow-test)
-[![License](https://img.shields.io/cocoapods/l/flow-test.svg?style=flat)](http://cocoapods.org/pods/flow-test)
-[![Platform](https://img.shields.io/cocoapods/p/flow-test.svg?style=flat)](http://cocoapods.org/pods/flow-test)
+A pod to unit-test a particular flow(not UI) based on method-names, to make sure that the corresponding methods are being ccalled.
 
-## Example
+## Why
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+When writing unit-tests for non-UI parts of an app, say like some kind of local in-memory store, I've found that basic unit-tests is not suitable for scenarios where there could be multiple ways of acheiving the same final result. So, although the unit-test passes, it may so happen that only one-route is being tested, while the other routes, which could also give the same result, are not. 
 
-## Requirements
+Ofcourse, this means that you are not treating your apis like a black-box. So, this should be useful particularly to the person implementing the flow and making sure that it does not break :) 
 
-## Installation
+The point of this was to explicitly make sure that for a particular test, a certain list of methods need to be called, in a particular order, for it to be deemed successful, along with the assertions in the final state.
 
-flow-test is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## TODO
 
-```ruby
-pod 'flow-test'
-```
+- Everything :p
+- Better documentation
+- Swift support
+- Assertions inside the arguments as well
 
 ## Author
 
