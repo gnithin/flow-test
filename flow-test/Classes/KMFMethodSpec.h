@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#define KMFMakeMethodSpec(class_name, method_signature) \
+[KMFMethodSpec className:class_name withMethodSignature:method_signature]
 
 NS_ASSUME_NONNULL_BEGIN
 

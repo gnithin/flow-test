@@ -7,7 +7,6 @@
 
 #import "KMFTestManager.h"
 #import "KMFSpecDetails.h"
-#import "KMFSpecDetails.h"
 
 @interface KMFTestManager()
 @property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
