@@ -6,7 +6,6 @@
 //
 
 #import "KMFTestManager.h"
-#import "KMFSpecDetails.h"
 #import "KMFAspectHandler.h"
 
 @interface KMFTestManager()
@@ -38,7 +37,7 @@
     // Perform the point-cuts for all the classes and the methods
     self.aspectHandler = [KMFAspectHandler instanceWithSpecs:specsList];
     
-    void(^flowReplacementBlock)(NSInvocation *, KMFSpecDetails *) = ^(NSInvocation *invocation, KMFSpecDetails *specDetails){
+    void(^flowReplacementBlock)(NSInvocation *, KMFMethodSpec *) = ^(NSInvocation *invocation, KMFMethodSpec *specDetails){
         // TODO: Perform the test synchronization here
         [invocation invoke];
     };

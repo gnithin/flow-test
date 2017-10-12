@@ -7,7 +7,6 @@
 
 #import <Foundation/Foundation.h>
 #import "KMFMethodSpec.h"
-#import "KMFSpecDetails.h"
 @import Aspects;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface KMFAspectHandler : NSObject
 
 + (instancetype)instanceWithSpecs:(NSArray<KMFMethodSpec *> *)specsList;
-- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFSpecDetails *))flowTestBlock;
+- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock;
 - (BOOL)removeAllPointCuts;
 
 @end

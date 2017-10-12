@@ -9,7 +9,7 @@
 #import "KMFMethodSpec+Internal.h"
 
 @interface KMFAspectHandler()
-@property (nonatomic) NSArray<KMFSpecDetails *> *specDetailsList;
+@property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
 @property (nonatomic) NSArray<id<Aspect>> *flowTestAspectsList;
 @end
 
@@ -17,36 +17,17 @@
 
 + (instancetype)instanceWithSpecs:(NSArray<KMFMethodSpec *> *)specsList{
     KMFAspectHandler *instance = [[KMFAspectHandler alloc] init];
-    [instance generateSpecDetailsFromSpecList:specsList];
+    instance.specsList = specsList;
     return instance;
-}
-
-- (void)generateSpecDetailsFromSpecList:(NSArray<KMFMethodSpec *> *)specsList{
-    if(specsList == nil || [specsList count] == 0){
-        specsList = nil;
-        return;
-    }
-    
-    NSMutableArray<KMFSpecDetails *> *specDetailsArr = [[NSMutableArray alloc] initWithCapacity:[specsList count]];
-    NSUInteger specIndex = 0;
-    for(KMFMethodSpec *spec in specsList){
-        KMFSpecDetails *specDetails = [KMFSpecDetails instanceWithSpec:spec andIndex:specIndex];
-        specIndex += 1;
-        [specDetailsArr addObject:specDetails];
-    }
-    
-    if(specDetailsArr != nil && [specDetailsArr count] > 0){
-        self.specDetailsList = [NSArray arrayWithArray:specDetailsArr];
-    }
 }
 
 #pragma mark - Setting up point-cuts
 
-- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFSpecDetails *))flowTestBlock{
-    NSMutableArray<id<Aspect>> *aspectsList = [[NSMutableArray alloc] initWithCapacity: [self.specDetailsList count]];
+- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock{
+    NSMutableArray<id<Aspect>> *aspectsList = [[NSMutableArray alloc] initWithCapacity: [self.specsList count]];
     
-    for(KMFSpecDetails *specDetails in self.specDetailsList){
-        id<Aspect> aspectObj = [self setupPointCutForSpecDetails:specDetails withBlock:flowTestBlock];
+    for(KMFMethodSpec *spec in self.specsList){
+        id<Aspect> aspectObj = [self setupPointCutForSpecDetails:spec withBlock:flowTestBlock];
         if(aspectObj != nil){
             [aspectsList addObject:aspectObj];
         }
@@ -55,19 +36,18 @@
 }
 
 /// Setting up point cuts for every entry in the specDetails
-- (id<Aspect>)setupPointCutForSpecDetails:(KMFSpecDetails *)specDetails
-                                withBlock:(void(^)(NSInvocation *, KMFSpecDetails *))flowTestBlock
+- (id<Aspect>)setupPointCutForSpecDetails:(KMFMethodSpec *)spec
+                                withBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock
 {
-    KMFMethodSpec *methodSpec = [specDetails methodSpec];
-    NSString *className = [methodSpec className];
-    NSString *methodName = [methodSpec methodSig];
+    NSString *className = [spec className];
+    NSString *methodName = [spec methodSig];
     
     Class classVal = NSClassFromString(className);
     NSError *aspectErr = nil;
     
     void(^methodReplacement)(id, NSArray *) = ^(id instance, NSArray *args){
         NSInvocation *invocation = [args lastObject];
-        flowTestBlock(invocation, specDetails);
+        flowTestBlock(invocation, spec);
     };
     
     id<Aspect> aspectObj = [classVal aspect_hookSelector:NSSelectorFromString(methodName)
