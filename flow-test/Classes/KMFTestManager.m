@@ -8,7 +8,8 @@
 #import "KMFTestManager.h"
 #import "KMFAspectHandler.h"
 #import "KMFMethodSpec+Internal.h"
-#define localizeString(key) [NSBundle.mainBundle localizedStringForKey:(key) value:@"" table:nil]
+
+static NSString *FLOW_TEST_PREFIX = @"testFlow";
 
 @interface KMFTestManager()
 @property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
@@ -20,7 +21,9 @@
 
 - (void)setUp{
     [super setUp];
-    [self setUpFlowTest];
+    if([self doesTestNameBeginWithFlow]){
+        [self setUpFlowTest];
+    }
 }
 
 - (void)tearDown{
@@ -115,11 +118,11 @@
         flowErrStr = [NSString stringWithFormat:@"Specs are not equal starting from index - %lu", (unsigned long)i];;
     }
     
-    // TODO: Add both the lists in a readable way here -
+    // TODO: Add both the lists in a readable way here
     (*flowErr) = [NSError errorWithDomain:@"KMFTestManager"
                                code:-2000
                            userInfo:@{
-                                      NSLocalizedDescriptionKey: localizeString(flowErrStr),
+                                      NSLocalizedDescriptionKey: [NSBundle.mainBundle localizedStringForKey:flowErrStr value:@"" table:nil],
                                       }];
 }
 
@@ -130,6 +133,12 @@
     
     return ([[firstSpec className] isEqualToString:[secondSpec className]] &&
             [[firstSpec methodSig] isEqualToString:[secondSpec methodSig]]);
+}
+
+- (BOOL)doesTestNameBeginWithFlow{
+    NSString *fullTestName = self.name;
+    NSString *testNameStr = [[fullTestName componentsSeparatedByString:@" "] lastObject];
+    return [testNameStr hasPrefix:FLOW_TEST_PREFIX];
 }
 
 @end
