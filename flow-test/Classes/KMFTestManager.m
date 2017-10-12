@@ -10,6 +10,7 @@
 
 @interface KMFTestManager()
 @property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
+@property (nonatomic) NSMutableArray<KMFMethodSpec *> *calledSpecsList;
 @property (nonatomic) KMFAspectHandler *aspectHandler;
 @end
 
@@ -34,15 +35,20 @@
         return;
     }
     self.specsList = specsList;
+    self.calledSpecsList = [[NSMutableArray alloc] initWithCapacity:[self.specsList count]];
     
+    __weak KMFTestManager *weakSelf = self;
     void(^flowTestBlock)(NSInvocation *, KMFMethodSpec *) = ^(NSInvocation *invocation, KMFMethodSpec *spec){
-        // TODO: Perform the test synchronization here
+        KMFTestManager *strongSelf = weakSelf;
+        if(strongSelf != nil){
+            [strongSelf methodCalledForSpec:spec];
+        }
+        
         [invocation invoke];
     };
-    // Perform the point-cuts for all the classes and the methods
+    
     self.aspectHandler = [KMFAspectHandler instanceWithSpecs:self.specsList
                                             andFlowTestBlock:flowTestBlock];
-    
 }
 
 - (void)tearDownFlowTest{
@@ -58,6 +64,15 @@
 /// NOTE: Since I am going the base-class route, have to think about supporting c-type methods as well (In the future of-course. Always in the future)
 - (NSArray<KMFMethodSpec *> *)flowMethodSpecsList{
     return nil;
+}
+#pragma mark - Helpers
+
+- (void)methodCalledForSpec:(KMFMethodSpec *)spec{
+    @synchronized(self){
+        if(spec != nil){
+            [self.calledSpecsList addObject:spec];
+        }
+    }
 }
 
 @end
