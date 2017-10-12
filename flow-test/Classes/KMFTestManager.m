@@ -69,9 +69,7 @@
     }
 }
 
-/// This is a method that'll be implemented by the sub-class.
-/// NOTE: Not going the delegate way, since this seems to be simpler (for now :p)
-/// NOTE: Since I am going the base-class route, have to think about supporting c-type methods as well (In the future of-course. Always in the future)
+/// This is a method that'll be implemented by the sub-class
 - (NSArray<KMFMethodSpec *> *)flowMethodSpecsList{
     return nil;
 }
