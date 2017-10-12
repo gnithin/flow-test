@@ -5,12 +5,7 @@
 //  Created by nithin.g on 12/10/17.
 //
 
-#import "KMFMethodSpec.h"
-
-@interface KMFMethodSpec()
-@property (nonnull) NSString *methodSig;
-@property (nonnull) NSString *className;
-@end
+#import "KMFMethodSpec+Internal.h"
 
 @implementation KMFMethodSpec
 
