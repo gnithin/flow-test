@@ -39,4 +39,7 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'XCTest'
   s.dependency 'Aspects', '1.3.1'
+  
+  # This is for an issue where XCTest does not contain bit-code. So the whole pod needs to be like this
+  s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 end
