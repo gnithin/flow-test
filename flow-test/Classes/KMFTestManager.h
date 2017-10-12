@@ -8,7 +8,7 @@
 #import <XCTest/XCTest.h>
 #import "KMFMethodSpec.h"
 
-@interface KMFTestManager : XCTest
+@interface KMFTestManager : XCTestCase
 /// Called before every test is executed.
 - (void)setUp;
 
