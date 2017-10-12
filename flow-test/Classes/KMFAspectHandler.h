@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KMFAspectHandler : NSObject
 
-+ (instancetype)instanceWithSpecs:(NSArray<KMFMethodSpec *> *)specsList;
-- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock;
++ (instancetype)instanceWithSpecs:(NSArray<KMFMethodSpec *> *)specsList andFlowTestBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock;
 - (BOOL)removeAllPointCuts;
 
 @end

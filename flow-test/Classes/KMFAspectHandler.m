@@ -9,25 +9,27 @@
 #import "KMFMethodSpec+Internal.h"
 
 @interface KMFAspectHandler()
-@property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
 @property (nonatomic) NSArray<id<Aspect>> *flowTestAspectsList;
 @end
 
 @implementation KMFAspectHandler
 
-+ (instancetype)instanceWithSpecs:(NSArray<KMFMethodSpec *> *)specsList{
++ (instancetype)instanceWithSpecs:(NSArray<KMFMethodSpec *> *)specsList
+                 andFlowTestBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock{
     KMFAspectHandler *instance = [[KMFAspectHandler alloc] init];
-    instance.specsList = specsList;
+    [instance setupPointCutsWithBlock:flowTestBlock
+                             forSpecs:specsList];
     return instance;
 }
 
 #pragma mark - Setting up point-cuts
 
-- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock{
-    NSMutableArray<id<Aspect>> *aspectsList = [[NSMutableArray alloc] initWithCapacity: [self.specsList count]];
-    
-    for(KMFMethodSpec *spec in self.specsList){
-        id<Aspect> aspectObj = [self setupPointCutForSpecDetails:spec withBlock:flowTestBlock];
+- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock
+                       forSpecs:(NSArray<KMFMethodSpec *> *)specsList
+{
+    NSMutableArray<id<Aspect>> *aspectsList = [[NSMutableArray alloc] initWithCapacity:[specsList count]];
+    for(KMFMethodSpec *spec in specsList){
+        id<Aspect> aspectObj = [self setupPointCutForSpec:spec withBlock:flowTestBlock];
         if(aspectObj != nil){
             [aspectsList addObject:aspectObj];
         }
@@ -36,8 +38,8 @@
 }
 
 /// Setting up point cuts for every entry in the specDetails
-- (id<Aspect>)setupPointCutForSpecDetails:(KMFMethodSpec *)spec
-                                withBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock
+- (id<Aspect>)setupPointCutForSpec:(KMFMethodSpec *)spec
+                         withBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock
 {
     NSString *className = [spec className];
     NSString *methodName = [spec methodSig];

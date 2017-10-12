@@ -9,7 +9,7 @@
 #import "KMFAspectHandler.h"
 
 @interface KMFTestManager()
-
+@property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
 @property (nonatomic) KMFAspectHandler *aspectHandler;
 @end
 
@@ -33,16 +33,16 @@
         specsList = nil;
         return;
     }
+    self.specsList = specsList;
     
-    // Perform the point-cuts for all the classes and the methods
-    self.aspectHandler = [KMFAspectHandler instanceWithSpecs:specsList];
-    
-    void(^flowReplacementBlock)(NSInvocation *, KMFMethodSpec *) = ^(NSInvocation *invocation, KMFMethodSpec *specDetails){
+    void(^flowTestBlock)(NSInvocation *, KMFMethodSpec *) = ^(NSInvocation *invocation, KMFMethodSpec *spec){
         // TODO: Perform the test synchronization here
         [invocation invoke];
     };
+    // Perform the point-cuts for all the classes and the methods
+    self.aspectHandler = [KMFAspectHandler instanceWithSpecs:self.specsList
+                                            andFlowTestBlock:flowTestBlock];
     
-    [self.aspectHandler setupPointCutsWithBlock:flowReplacementBlock];
 }
 
 - (void)tearDownFlowTest{
