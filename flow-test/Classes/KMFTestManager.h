@@ -9,9 +9,13 @@
 #import "KMFMethodSpec.h"
 
 @interface KMFTestManager : XCTest
-
+/// Called before every test is executed.
 - (void)setUp;
+
+/// Called after every test is executed.
 - (void)tearDown;
-- (NSArray<KMFMethodSpec *> * _Nullable)flowMethodsList;
+
+/// This method returns the list of methods-specs to be checked
+- (NSArray<KMFMethodSpec *> * _Nullable)flowMethodSpecsList;
 
 @end

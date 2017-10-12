@@ -9,4 +9,11 @@
 
 @implementation KMFSpecDetails
 
++ (instancetype)instanceWithSpec:(KMFMethodSpec *)spec andIndex:(NSUInteger)index{
+    KMFSpecDetails *specDetails = [[KMFSpecDetails alloc] init];
+    specDetails.methodSpec = spec;
+    specDetails.specIndex = index;
+    return specDetails;
+}
+
 @end

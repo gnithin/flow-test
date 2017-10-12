@@ -7,6 +7,7 @@
 
 #import "KMFTestManager.h"
 #import "KMFSpecDetails.h"
+#import "KMFSpecDetails.h"
 
 @interface KMFTestManager()
 @property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
@@ -14,10 +15,12 @@
 
 @implementation KMFTestManager
 
+#pragma mark - Public methods
+
 - (void)setUp{
     [super setUp];
     
-    self.specsList = [self flowMethodsList];
+    self.specsList = [self flowMethodSpecsList];
     if(self.specsList == nil || [self.specsList count] == 0){
         self.specsList = nil;
         return;
@@ -27,6 +30,19 @@
     [self setupPointCutsForSpecs];
 }
 
+/// This is a method that'll be implemented by the sub-class.
+/// NOTE: Not going the delegate way, since this seems to be simpler (for now :p)
+- (NSArray<KMFMethodSpec *> *)flowMethodSpecsList{
+    return nil;
+}
+
+- (void)tearDown{
+    [super tearDown];
+}
+
+#pragma mark - point-cut setup
+
+/// Setup point-cuts for specs
 - (void)setupPointCutsForSpecs{
     if(self.specsList == nil){
         return;
@@ -34,23 +50,15 @@
     
     NSUInteger specIndex = 0;
     for(KMFMethodSpec *spec in self.specsList){
-        [self setupPointCutForSpec:spec];
+        KMFSpecDetails *specdetails = [KMFSpecDetails instanceWithSpec:spec andIndex:specIndex];
+        [self setupPointCutForSpec:specdetails];
         specIndex += 1;
     }
 }
 
-- (void)setupPointCutForSpec:(KMFMethodSpec *)spec{
-    
-}
-
-/// This is a method that'll be implemented by the sub-class.
-/// NOTE: Not going the delegate way, since this seems to be simpler (for now :p)
-- (NSArray<KMFMethodSpec *> *)flowMethodsList{
-    return nil;
-}
-
-- (void)tearDown{
-    [super tearDown];
+/// Setting up point cuts for every entry in the specDetails
+- (void)setupPointCutForSpec:(KMFSpecDetails *)specDetails{
+    // TODO: Perform point cuts with default methods
 }
 
 @end

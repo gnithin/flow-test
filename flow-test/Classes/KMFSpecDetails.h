@@ -8,9 +8,15 @@
 #import <Foundation/Foundation.h>
 #import "KMFMethodSpec.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KMFSpecDetails : NSObject
 
 @property (nonnull) KMFMethodSpec *methodSpec;
 @property (nonatomic) NSUInteger specIndex;
 
++ (instancetype)instanceWithSpec:(KMFMethodSpec *)spec andIndex:(NSUInteger)index;
+
 @end
+
+NS_ASSUME_NONNULL_END
