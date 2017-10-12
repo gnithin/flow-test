@@ -1,0 +1,6 @@
+framework module flow_test {
+  umbrella header "flow-test-umbrella.h"
+
+  export *
+  module * { export * }
+}

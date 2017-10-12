@@ -1,0 +1,6 @@
+framework module Pods_flow_test_Tests {
+  umbrella header "Pods-flow-test_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

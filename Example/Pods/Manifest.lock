@@ -1,0 +1,16 @@
+PODS:
+  - flow-test (0.1.0)
+
+DEPENDENCIES:
+  - flow-test (from `../`)
+
+EXTERNAL SOURCES:
+  flow-test:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  flow-test: 48aed4f425d78d6d51588313faccdf84dd46ca86
+
+PODFILE CHECKSUM: 08b2efcf4b9cc33fe10a957c4aa7e83df6f09202
+
+COCOAPODS: 1.2.0
