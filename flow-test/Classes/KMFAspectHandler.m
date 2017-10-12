@@ -6,7 +6,6 @@
 //
 
 #import "KMFAspectHandler.h"
-#import "KMFSpecDetails.h"
 #import "KMFMethodSpec+Internal.h"
 
 @interface KMFAspectHandler()
@@ -43,11 +42,11 @@
 
 #pragma mark - Setting up point-cuts
 
-- (BOOL)setupPointCuts{
+- (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFSpecDetails *))flowTestBlock{
     NSMutableArray<id<Aspect>> *aspectsList = [[NSMutableArray alloc] initWithCapacity: [self.specDetailsList count]];
     
     for(KMFSpecDetails *specDetails in self.specDetailsList){
-        id<Aspect> aspectObj = [self setupPointCutForSpecDetails:specDetails];
+        id<Aspect> aspectObj = [self setupPointCutForSpecDetails:specDetails withBlock:flowTestBlock];
         if(aspectObj != nil){
             [aspectsList addObject:aspectObj];
         }
@@ -56,7 +55,9 @@
 }
 
 /// Setting up point cuts for every entry in the specDetails
-- (id<Aspect>)setupPointCutForSpecDetails:(KMFSpecDetails *)specDetails{
+- (id<Aspect>)setupPointCutForSpecDetails:(KMFSpecDetails *)specDetails
+                                withBlock:(void(^)(NSInvocation *, KMFSpecDetails *))flowTestBlock
+{
     KMFMethodSpec *methodSpec = [specDetails methodSpec];
     NSString *className = [methodSpec className];
     NSString *methodName = [methodSpec methodSig];
@@ -65,9 +66,8 @@
     NSError *aspectErr = nil;
     
     void(^methodReplacement)(id, NSArray *) = ^(id instance, NSArray *args){
-        // TODO: Perform the test synchronization here
         NSInvocation *invocation = [args lastObject];
-        [invocation invoke];
+        flowTestBlock(invocation, specDetails);
     };
     
     id<Aspect> aspectObj = [classVal aspect_hookSelector:NSSelectorFromString(methodName)

@@ -37,7 +37,13 @@
     
     // Perform the point-cuts for all the classes and the methods
     self.aspectHandler = [KMFAspectHandler instanceWithSpecs:specsList];
-    [self.aspectHandler setupPointCuts];
+    
+    void(^flowReplacementBlock)(NSInvocation *, KMFSpecDetails *) = ^(NSInvocation *invocation, KMFSpecDetails *specDetails){
+        // TODO: Perform the test synchronization here
+        [invocation invoke];
+    };
+    
+    [self.aspectHandler setupPointCutsWithBlock:flowReplacementBlock];
 }
 
 - (void)tearDownFlowTest{
