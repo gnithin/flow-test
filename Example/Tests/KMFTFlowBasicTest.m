@@ -16,19 +16,20 @@
 
 @implementation KMFTFlowBasicTest
 
-- (NSArray<KMFMethodSpec *> *)flowMethodSpecsList{
-    return @[
-             KMFMakeMethodSpec(@"KMFTCustomFeature", @"callMethodA"),
-             ];
-}
-
 - (void)testFlowForMethodA{
+    KMFAddMethodSpecsList(@[
+                            KMFMakeMethodSpec(@"KMFTCustomFeature", @"callMethodA")
+                            ]);
     KMFTCustomFeature *customFeature = [[KMFTCustomFeature alloc] init];
     NSNumber *result = [customFeature complicatedFeature: MyFeaturePathA];
     XCTAssert([result isEqualToNumber:[NSNumber numberWithInt:42]]);
 }
 
 - (void)testFlowForMethodB{
+    KMFAddMethodSpecsList(@[
+                            KMFMakeMethodSpec(@"KMFTCustomFeature", @"callMethodB")
+                            ]);
+    
     KMFTCustomFeature *customFeature = [[KMFTCustomFeature alloc] init];
     NSNumber *result = [customFeature complicatedFeature: MyFeaturePathB];
     XCTAssert([result isEqualToNumber:[NSNumber numberWithInt:42]]);
