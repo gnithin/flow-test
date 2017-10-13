@@ -9,7 +9,7 @@
 #import "KMFMethodSpec+Internal.h"
 
 @interface KMFAspectHandler()
-@property (nonatomic) NSArray<id<Aspect>> *flowTestAspectsList;
+@property (nonatomic) NSMutableArray<id<Aspect>> *flowTestAspectsList;
 @end
 
 @implementation KMFAspectHandler
@@ -22,16 +22,21 @@
     return instance;
 }
 
+- (instancetype)init{
+    self = [super init];
+    _flowTestAspectsList = [[NSMutableArray alloc] init];
+    return self;
+}
+
 #pragma mark - Setting up point-cuts
 
 - (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock
                        forSpecs:(NSArray<KMFMethodSpec *> *)specsList
 {
-    NSMutableArray<id<Aspect>> *aspectsList = [[NSMutableArray alloc] initWithCapacity:[specsList count]];
     for(KMFMethodSpec *spec in specsList){
         id<Aspect> aspectObj = [self setupPointCutForSpec:spec withBlock:flowTestBlock];
         if(aspectObj != nil){
-            [aspectsList addObject:aspectObj];
+            [self.flowTestAspectsList addObject:aspectObj];
         }
     }
     return YES;
@@ -56,8 +61,13 @@
                                              withOptions:AspectPositionInstead
                                               usingBlock:methodReplacement
                                                    error:&aspectErr];
-    if(aspectErr != nil){
-        NSLog(@"Failed point-cutting aspect - %@ %@ with error - %@", className, methodName, aspectErr);
+    if(aspectErr != nil || aspectObj == nil){
+        NSLog(@"Failed point-cutting aspect - %@ %@", className, methodName);
+        if(aspectErr != nil){
+            NSLog(@"With error - %@", aspectErr);
+        }
+        
+        [NSException raise:@"flowTestUnexpectedMethodSpec" format:@"An unexpected method-spec was encountered! - [%@ %@]. It could be a spelling issue or it could be a static method(static methods aren't supported)", className, methodName];
         return nil;
     }
     

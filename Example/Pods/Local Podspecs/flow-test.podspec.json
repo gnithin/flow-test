@@ -18,5 +18,14 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "flow-test/Classes/**/*"
+  "source_files": "flow-test/Classes/**/*",
+  "frameworks": "XCTest",
+  "dependencies": {
+    "Aspects": [
+      "1.3.1"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  }
 }

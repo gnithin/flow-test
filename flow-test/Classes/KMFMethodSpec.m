@@ -18,4 +18,8 @@
     return instance;
 }
 
+- (NSString *)description{
+    return [NSString stringWithFormat:@"[%@ %@]", self.className, self.methodSig];
+}
+
 @end

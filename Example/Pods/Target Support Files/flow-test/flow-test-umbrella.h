@@ -10,6 +10,10 @@
 #endif
 #endif
 
+#import "KMFAspectHandler.h"
+#import "KMFMethodSpec+Internal.h"
+#import "KMFMethodSpec.h"
+#import "KMFTestManager.h"
 
 FOUNDATION_EXPORT double flow_testVersionNumber;
 FOUNDATION_EXPORT const unsigned char flow_testVersionString[];

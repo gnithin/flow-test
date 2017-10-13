@@ -12,7 +12,7 @@
 static NSString *FLOW_TEST_PREFIX = @"testFlow";
 
 @interface KMFTestManager()
-@property (nonatomic) NSArray<KMFMethodSpec *> *specsList;
+@property (nonatomic) NSMutableArray<KMFMethodSpec *> *specsList;
 @property (nonatomic) NSMutableArray<KMFMethodSpec *> *calledSpecsList;
 @property (nonatomic) KMFAspectHandler *aspectHandler;
 @end
@@ -34,13 +34,23 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
 #pragma mark - Public methods
 
 - (void)setUpFlowTest{
+    self.calledSpecsList = [[NSMutableArray alloc] init];
+    
     NSArray<KMFMethodSpec *> *specsList = [self flowMethodSpecsList];
     if(specsList == nil || [specsList count] == 0){
         specsList = nil;
         return;
     }
-    self.specsList = specsList;
-    self.calledSpecsList = [[NSMutableArray alloc] initWithCapacity:[self.specsList count]];
+    [self addMethodSpecsList:specsList];
+}
+
+- (void)addMethodSpecsList:(NSArray<KMFMethodSpec *> * _Nonnull)methodSpecsList{
+    // Update the specs-list
+    if(self.specsList == nil){
+        self.specsList = [NSMutableArray arrayWithArray:methodSpecsList];
+    }else{
+        [self.specsList addObjectsFromArray:methodSpecsList];
+    }
     
     __weak KMFTestManager *weakSelf = self;
     void(^flowTestBlock)(NSInvocation *, KMFMethodSpec *) = ^(NSInvocation *invocation, KMFMethodSpec *spec){
@@ -52,8 +62,12 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
         [invocation invoke];
     };
     
-    self.aspectHandler = [KMFAspectHandler instanceWithSpecs:self.specsList
-                                            andFlowTestBlock:flowTestBlock];
+    if(self.aspectHandler == nil){
+        self.aspectHandler = [KMFAspectHandler instanceWithSpecs:methodSpecsList
+                                                andFlowTestBlock:flowTestBlock];
+    }else{
+        [self.aspectHandler setupPointCutsWithBlock:flowTestBlock forSpecs:methodSpecsList];
+    }
 }
 
 - (void)tearDownFlowTest{
@@ -103,9 +117,12 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
         
         // Perform the actual mapping comparision here.
         NSUInteger i;
+        KMFMethodSpec *expectedSpec = nil;
+        KMFMethodSpec *actualSpec = nil;
+        
         for(i = 0; i<[self.calledSpecsList count]; i++){
-            KMFMethodSpec *expectedSpec = [self.specsList objectAtIndex:i];
-            KMFMethodSpec *actualSpec = [self.calledSpecsList objectAtIndex:i];
+            expectedSpec = [self.specsList objectAtIndex:i];
+            actualSpec = [self.calledSpecsList objectAtIndex:i];
             if(NO == [self areTwoSpecsEqual:expectedSpec :actualSpec]){
                 specsAreEqual = NO;
                 break;
@@ -115,7 +132,7 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
         if(specsAreEqual){
             return;
         }
-        flowErrStr = [NSString stringWithFormat:@"Specs are not equal starting from index - %lu", (unsigned long)i];;
+        flowErrStr = [NSString stringWithFormat:@"Specs are not equal starting from index - %lu. Expected %@, got %@", (unsigned long)i, [expectedSpec description], [actualSpec description]];;
     }
     
     // TODO: Add both the lists in a readable way here

@@ -8,6 +8,8 @@
 #import <XCTest/XCTest.h>
 #import "KMFMethodSpec.h"
 
+#define KMFAddMethodSpecsList(methodsList) [self addMethodSpecsList:methodsList]
+
 @interface KMFTestManager : XCTestCase
 
 /// Called before every test is executed.
@@ -18,5 +20,8 @@
 
 /// This method returns the list of methods-specs to be checked
 - (NSArray<KMFMethodSpec *> * _Nullable)flowMethodSpecsList;
+
+/// Add the method-specs
+- (void)addMethodSpecsList:(NSArray<KMFMethodSpec *> * _Nonnull)methodSpecsList;
 
 @end

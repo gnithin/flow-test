@@ -19,10 +19,11 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		87EB21AC5CD2362BF3C37640 /* Pods_flow_test_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA89481B042334AB32AB8B35 /* Pods_flow_test_Tests.framework */; };
+		AEE1391F1F90B80F00F2904E /* KMFTFlowBasicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE1391E1F90B80F00F2904E /* KMFTFlowBasicTest.m */; };
+		AEE139221F90B86D00F2904E /* KMFTCustomFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE139211F90B86D00F2904E /* KMFTCustomFeature.m */; };
 		E55FE87B741C10C3C3469E3F /* Pods_flow_test_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B64DE18A8CACF55A90026 /* Pods_flow_test_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +39,8 @@
 
 /* Begin PBXFileReference section */
 		02065C0BE69E785566D52BFA /* Pods-flow-test_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flow-test_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flow-test_Tests/Pods-flow-test_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		04E2678555B99801C242E3E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		13C822E0FD81245592906B03 /* flow-test.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "flow-test.podspec"; path = "../flow-test.podspec"; sourceTree = "<group>"; };
+		04E2678555B99801C242E3E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		13C822E0FD81245592906B03 /* flow-test.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "flow-test.podspec"; path = "../flow-test.podspec"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* flow-test_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flow-test_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,14 +58,16 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79C185897D18CD3EF2495C87 /* Pods-flow-test_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flow-test_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-flow-test_Example/Pods-flow-test_Example.release.xcconfig"; sourceTree = "<group>"; };
-		810A542CC553C8FEAFB7574D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		810A542CC553C8FEAFB7574D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3B2FB838F6C22D5E550D220 /* Pods-flow-test_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flow-test_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-flow-test_Tests/Pods-flow-test_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AA3B64DE18A8CACF55A90026 /* Pods_flow_test_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flow_test_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEE1391E1F90B80F00F2904E /* KMFTFlowBasicTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMFTFlowBasicTest.m; sourceTree = "<group>"; };
+		AEE139201F90B86D00F2904E /* KMFTCustomFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMFTCustomFeature.h; sourceTree = "<group>"; };
+		AEE139211F90B86D00F2904E /* KMFTCustomFeature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMFTCustomFeature.m; sourceTree = "<group>"; };
 		DA385A86BBC14C957D3DA89F /* Pods-flow-test_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flow-test_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flow-test_Example/Pods-flow-test_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		FA89481B042334AB32AB8B35 /* Pods_flow_test_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flow_test_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -170,8 +173,9 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				AEE1391D1F90B7DA00F2904E /* TestHelpers */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
+				AEE1391E1F90B80F00F2904E /* KMFTFlowBasicTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -194,6 +198,15 @@
 				810A542CC553C8FEAFB7574D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		AEE1391D1F90B7DA00F2904E /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				AEE139201F90B86D00F2904E /* KMFTCustomFeature.h */,
+				AEE139211F90B86D00F2904E /* KMFTCustomFeature.m */,
+			);
+			name = TestHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,7 +417,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				AEE1391F1F90B80F00F2904E /* KMFTFlowBasicTest.m in Sources */,
+				AEE139221F90B86D00F2904E /* KMFTCustomFeature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

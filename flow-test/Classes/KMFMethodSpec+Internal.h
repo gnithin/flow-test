@@ -13,6 +13,8 @@
 @interface KMFMethodSpec()
 @property (nonnull) NSString *methodSig;
 @property (nonnull) NSString *className;
+
+- (NSString *)description;
 @end
 
 #endif /* KMFMethodSpec_Internal_h */
