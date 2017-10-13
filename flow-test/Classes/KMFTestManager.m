@@ -117,9 +117,12 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
         
         // Perform the actual mapping comparision here.
         NSUInteger i;
+        KMFMethodSpec *expectedSpec = nil;
+        KMFMethodSpec *actualSpec = nil;
+        
         for(i = 0; i<[self.calledSpecsList count]; i++){
-            KMFMethodSpec *expectedSpec = [self.specsList objectAtIndex:i];
-            KMFMethodSpec *actualSpec = [self.calledSpecsList objectAtIndex:i];
+            expectedSpec = [self.specsList objectAtIndex:i];
+            actualSpec = [self.calledSpecsList objectAtIndex:i];
             if(NO == [self areTwoSpecsEqual:expectedSpec :actualSpec]){
                 specsAreEqual = NO;
                 break;
@@ -129,7 +132,7 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
         if(specsAreEqual){
             return;
         }
-        flowErrStr = [NSString stringWithFormat:@"Specs are not equal starting from index - %lu", (unsigned long)i];;
+        flowErrStr = [NSString stringWithFormat:@"Specs are not equal starting from index - %lu. Expected %@, got %@", (unsigned long)i, [expectedSpec description], [actualSpec description]];;
     }
     
     // TODO: Add both the lists in a readable way here
