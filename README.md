@@ -1,14 +1,14 @@
 # flow-test
 
-A pod to unit-test a particular flow(not UI) based on method-names, to make sure that the corresponding methods are being ccalled.
+A pod to unit-test non-UI flow based on method selectors strings
 
 ## Why
 
-When writing unit-tests for non-UI parts of an app, say like some kind of local in-memory store, I've found that basic unit-tests is not suitable for scenarios where there could be multiple ways of acheiving the same final result. So, although the unit-test passes, it may so happen that only one-route is being tested, while the other routes, which could also give the same result, are not. 
+When writing unit-tests for non-UI parts of an app, say like some kind of local in-memory store, I've found that basic unit-tests are not suitable for scenarios where there could be multiple ways of arriving at the same final result. So, although the unit-test passes, it may so happen that only one-route is being tested, while the other routes, which could also give the same result, are not. This pod helps to explicitly cover alternate paths.
 
-Ofcourse, this means that you are not treating your apis like a black-box. So, this should be useful particularly to the person implementing the flow and making sure that it does not break :) 
+This means that you would not treat your apis like a black-box. So, this should be useful particularly to the person implementing the flow and making sure that it does not break on future changes :)
 
-The point of this was to explicitly make sure that for a particular test, a certain list of methods need to be called, in a particular order, for it to be deemed successful, along with the assertions in the final state.
+The point of this was to explicitly make sure that for a particular test, a certain list of methods need to be called, in a particular order, for it to be successful.
 
 ## Usage
 
@@ -18,7 +18,7 @@ You can install `flow-test` using Cocoapods, by adding this to the test-target i
 pod 'flow-test'
 ```
 
-So that your final test target looks like this - 
+So the final test target for your app named `MyApp` will look like this -
 
 ```Ruby
 target 'MyApp_Tests' do
@@ -27,16 +27,11 @@ target 'MyApp_Tests' do
 end
 ```
 
-
-### Example
+### Usage Example
 
 Suppose you have a flow of logic that looks like this - 
 
 ```ObjC
-@interface MyFeature:NSObject
-- (NSNumber *)complicatedFeature:(NSUInteger)path;
-@end
-
 @implementation MyFeature
 - (NSUInteger)complicatedFeature:(NSUInteger)index{
     if(index == 0){
@@ -46,20 +41,20 @@ Suppose you have a flow of logic that looks like this -
 }
 
 - (void)callSampleMethod{
-    // ...
+    // ... Some more code here.
 }
 @end
 ```
 
-`MyFeature` is a class that consists of a `complicatedFeature` that calls different methods based on what is passed as it's arguments. The problem is the return value will always be the same.
+`MyFeature` is a class that consists of a `complicatedFeature` method that calls different methods based on what is passed to it's arguments, although it returns the same response everytime.
 
-So let's test the flow of the method `complicatedFeature` with arguments as `0` and `1`. Note that when the argument passed is `0`, `callSampleMethod` method is called. We can assert that.
+So let's test the flow for `complicatedFeature` with arguments as `0` and `1`. Note that when the argument passed is `0`, `callSampleMethod` method is called. We can assert that.
 
 The final test will look like - 
 
 ```ObjC
-#import "MyFeature.h"
 @import flow_test;
+#import "MyFeature.h"
 
 @interface MyFeatureTests : KMFTestManager
 @end
@@ -87,10 +82,12 @@ The final test will look like -
 }
 
 @end
-
 ```
 
-You can import the pod using `@import` and instead of your tests extending from `XCTestCase`, they will extend from `KMFTestManager`.
+So let's break this down -
+
+You can import the pod using `@import` and instead of your tests extending from `XCTestCase`, they will extend from `KMFTestManager` class.
+
 ```Objc
 @import flow_test;
 
@@ -99,7 +96,13 @@ You can import the pod using `@import` and instead of your tests extending from 
 @end
 ```
 
-Make sure that the tests in which the you'd like the test the flow begins with `testFlow`. If not, the methods will not be asserted in those tests. You can add the class and method selector string in an array.
+When testing the flow of methods, make sure that the test-name begins with `testFlow`. If not, the methods will not be asserted in those tests and they'll work similar to vanilla `XCTestCase`.
+
+The methods can be specified using the classname and method selector string. It's internally called a method-spec. You can create a method-spec using the macro - `KMFMakeMethodSpec(@"classname", @"methodSelector")`.
+
+You can add a list of method-specs to assert that these selectors will be called in the order specified by the list. You need to add the method-specs list to the `KMFAddMethodSpecsList(@[...])`.
+
+So the flow-test for the `complicatedFeature` will look like -
 
 ```ObjC
 - (void)testFlowFeatureWithZero{
@@ -107,11 +110,11 @@ Make sure that the tests in which the you'd like the test the flow begins with `
     // encountered when calling `complicatedFeature`.
     KMFAddMethodSpecsList(@[
                             KMFMakeMethodSpec(@"MyFeature", @"callSampleMethod")
+                            // You can add more method-specs here
                             ]);
     
-    // Regular tests from here on...
+    // Regular XCTestCase assertions from this point...
 }
-
 ```
 
 And that's all!
@@ -139,9 +142,9 @@ Note that this does not mean that, only these methods need to be called! Other m
 
 ### `flowMethodSpecsList` method
 
-Note that there is a special method - `flowMethodSpecsList`, which can specify the methods that will be common to multiple tests in the current test class.
+Note that there is a special method - `flowMethodSpecsList`, in which one can specify the method-specs that will be common to multiple tests in the current test class.
 
-So if there's a `commonMethod` that's called before any of these methods, the tests will look like this - 
+So, in the above `MyFeature` class, if there's a `commonMethod` that's called in every method, including the `complicatedFeature`, then tests will look like this -
 
 ```ObjC
 // The commonMethod is added to the method-specs list before running every test. 
@@ -163,6 +166,8 @@ So if there's a `commonMethod` that's called before any of these methods, the te
     // ... Rest of the test
 }
 ```
+
+This is just to make the flow-tests cleaner. It's perfectly fine to omit `flowMethodSpecsList` and specify the method-specs list using `KMFAddMethodSpecsList()` inside every `testFlow` tests.
 
 ## Author
 
