@@ -9,7 +9,7 @@
 #import "KMFMethodSpec+Internal.h"
 
 @interface KMFAspectHandler()
-@property (nonatomic) NSArray<id<Aspect>> *flowTestAspectsList;
+@property (nonatomic) NSMutableArray<id<Aspect>> *flowTestAspectsList;
 @end
 
 @implementation KMFAspectHandler
@@ -22,16 +22,21 @@
     return instance;
 }
 
+- (instancetype)init{
+    self = [super init];
+    _flowTestAspectsList = [[NSMutableArray alloc] init];
+    return self;
+}
+
 #pragma mark - Setting up point-cuts
 
 - (BOOL)setupPointCutsWithBlock:(void(^)(NSInvocation *, KMFMethodSpec *))flowTestBlock
                        forSpecs:(NSArray<KMFMethodSpec *> *)specsList
 {
-    NSMutableArray<id<Aspect>> *aspectsList = [[NSMutableArray alloc] initWithCapacity:[specsList count]];
     for(KMFMethodSpec *spec in specsList){
         id<Aspect> aspectObj = [self setupPointCutForSpec:spec withBlock:flowTestBlock];
         if(aspectObj != nil){
-            [aspectsList addObject:aspectObj];
+            [self.flowTestAspectsList addObject:aspectObj];
         }
     }
     return YES;
