@@ -171,7 +171,7 @@ This is just to make the flow-tests cleaner. It's perfectly fine to omit `flowMe
 
 ## Dependencies
 
-`flow-test` depends upon the awesome [`Aspect`](https://github.com/steipete/Aspects) library. 
+`flow-test` depends upon, and works because of, the awesome [`Aspects`](https://github.com/steipete/Aspects) library. 
 
 ## Author
 
