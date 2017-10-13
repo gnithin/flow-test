@@ -16,6 +16,12 @@
 
 @implementation KMFTFlowBasicTest
 
+- (NSArray<KMFMethodSpec *> *)flowMethodSpecsList{
+    return @[
+             KMFMakeMethodSpec(@"KMFTCustomFeature", @"commonMethod")
+             ];
+}
+
 - (void)testFlowForMethodA{
     KMFAddMethodSpecsList(@[
                             KMFMakeMethodSpec(@"KMFTCustomFeature", @"callMethodA")

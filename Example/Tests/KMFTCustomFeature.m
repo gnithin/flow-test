@@ -11,6 +11,7 @@
 @implementation KMFTCustomFeature
 
 - (NSNumber *)complicatedFeature:(MyFeaturePath)path{
+    [self commonMethod];
     switch (path) {
         case MyFeaturePathA:
             [self callMethodA];
@@ -38,6 +39,10 @@
 
 - (void)callMethodC{
     NSLog(@"MethodC called!");
+}
+
+- (void)commonMethod{
+    NSLog(@"Common method called!");
 }
 
 @end
