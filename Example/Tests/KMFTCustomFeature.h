@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 typedef enum : NSUInteger {
+    MyFeatureNone,
     MyFeaturePathA,
     MyFeaturePathB,
-    MyFeaturePathC
+    MyFeaturePathC,
 } MyFeaturePath;
 
 @interface KMFTCustomFeature : NSObject

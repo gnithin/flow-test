@@ -27,7 +27,7 @@
                             KMFMakeMethodSpec(@"KMFTCustomFeature", @"callMethodA")
                             ]);
     KMFTCustomFeature *customFeature = [[KMFTCustomFeature alloc] init];
-    NSNumber *result = [customFeature complicatedFeature: MyFeaturePathA];
+    NSNumber *result = [customFeature complicatedFeature:MyFeaturePathA];
     XCTAssert([result isEqualToNumber:[NSNumber numberWithInt:42]]);
 }
 
@@ -37,7 +37,13 @@
                             ]);
     
     KMFTCustomFeature *customFeature = [[KMFTCustomFeature alloc] init];
-    NSNumber *result = [customFeature complicatedFeature: MyFeaturePathB];
+    NSNumber *result = [customFeature complicatedFeature:MyFeaturePathB];
+    XCTAssert([result isEqualToNumber:[NSNumber numberWithInt:42]]);
+}
+
+- (void)testFlowForNone{
+    KMFTCustomFeature *customFeature = [[KMFTCustomFeature alloc] init];
+    NSNumber *result = [customFeature complicatedFeature:MyFeatureNone];
     XCTAssert([result isEqualToNumber:[NSNumber numberWithInt:42]]);
 }
 
