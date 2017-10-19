@@ -18,5 +18,6 @@ typedef enum : NSUInteger {
 @interface KMFTCustomFeature : NSObject
 
 - (NSNumber *)complicatedFeature:(MyFeaturePath)path;
+- (void)repeatedMethodCaller;
 
 @end

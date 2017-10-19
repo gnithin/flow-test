@@ -47,4 +47,15 @@
     XCTAssert([result isEqualToNumber:[NSNumber numberWithInt:42]]);
 }
 
+- (void)testFlowForRepeatedMethodCalls{
+    KMFAddMethodSpecsList((@[
+                             KMFMakeMethodSpec(@"KMFTCustomFeature", @"callMethodA"),
+                             KMFMakeMethodSpec(@"KMFTCustomFeature", @"commonMethod"),
+                             KMFMakeMethodSpec(@"KMFTCustomFeature", @"callMethodA"),
+                             ]));
+    
+    KMFTCustomFeature *customFeature = [[KMFTCustomFeature alloc] init];
+    [customFeature repeatedMethodCaller];
+}
+
 @end

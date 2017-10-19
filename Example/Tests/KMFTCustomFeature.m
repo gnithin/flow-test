@@ -10,6 +10,12 @@
 
 @implementation KMFTCustomFeature
 
+- (void)repeatedMethodCaller{
+    [self complicatedFeature:MyFeaturePathA];
+    [self commonMethod];
+    [self callMethodA];
+}
+
 - (NSNumber *)complicatedFeature:(MyFeaturePath)path{
     [self commonMethod];
     switch (path) {
