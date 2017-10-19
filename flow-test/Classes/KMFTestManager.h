@@ -12,16 +12,10 @@
 
 @interface KMFTestManager : XCTestCase
 
-/// Called before every test is executed.
-- (void)setUpFlowTest;
-
-/// Called after every test is executed.
-- (void)tearDownFlowTest;
-
-/// This method returns the list of methods-specs to be checked
+/// @Override - This method returns the list of methods-specs to be checked.
 - (NSArray<KMFMethodSpec *> * _Nullable)flowMethodSpecsList;
 
-/// Add the method-specs
+/// Add the method-specs. Use the KMFAddMethodSpecsList() macro instead.
 - (void)addMethodSpecsList:(NSArray<KMFMethodSpec *> * _Nonnull)methodSpecsList;
 
 @end

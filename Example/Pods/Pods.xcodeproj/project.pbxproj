@@ -7,45 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0322865C1B84E53018965301B5048A38 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31EAF799C43968C029425C994D760D0 /* XCTest.framework */; };
-		0B153FDD196A22854FB991B8077EA60B /* KMFAspectHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 38FF0653694DEBC7D8D1F32CE33C6724 /* KMFAspectHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1215D7E033A55DC07483D9327D0F08AD /* Aspects.h in Headers */ = {isa = PBXBuildFile; fileRef = D80453B2EF0E41E0957FE769D386DAAD /* Aspects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		174B6606F172B017FEB02BD7D590A082 /* KMFSpecsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D9E288D1E0BF070EF0AAC51243CABE /* KMFSpecsManager.m */; };
 		1940835D23ED4933E2D6E6E1860C7CE8 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CB00BF6A65E5261E4B4E6EE36DD98 /* Aspects.m */; };
-		3420189B2B6FD62619F593CE21345B32 /* KMFTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E7DDB21B1A1E0CF7FA784D5C240A2 /* KMFTestManager.m */; };
-		5948E8778517F639229D2CCD71D01891 /* KMFMethodSpec+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CA4F557D2FEB8A82A8EAA87FBD4A73B /* KMFMethodSpec+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CD06A7C37ED43B91CF1FF5585373768 /* KMFTestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F547E561ABAD0FDC7F7BA4CA6521C1F0 /* KMFTestManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		367F9E2301A922BECD01478AF56A39C4 /* flow-test-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 713C38D7276D3D4AB5C63EB3DF8BCC05 /* flow-test-dummy.m */; };
+		47897C46EA1AF3BFB08804D1D397233F /* flow-test-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87CC49C5614F142420EAB21BD03A627D /* flow-test-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		528528466F748121258F16D91610FC8E /* KMFTestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 08030A21C6A3375455F87E99E7EC959C /* KMFTestManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60355879E7484505931862C12524514A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F1933B105E57850DCC1473EB776EEE /* Foundation.framework */; };
+		63A4F31C99FE23828240708097173481 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F1933B105E57850DCC1473EB776EEE /* Foundation.framework */; };
 		7229B182A392FF577FA24236AD3FBA56 /* Aspects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E60A81337DB5390B780FE7FAD7A833F /* Aspects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7274CBA3AD00EA0638C4FB392A708F4B /* KMFAspectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DA486B66F581C809AEB0A972D3349BB9 /* KMFAspectHandler.m */; };
 		753F4396524C0DC246218A4D0260AC03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F1933B105E57850DCC1473EB776EEE /* Foundation.framework */; };
+		82C21F25E15AF6AC3641263BA019E82A /* KMFAspectHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 514C2782683D3CA229E56FAC15C0DAA0 /* KMFAspectHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E8799B292F373C4A605C6D983A4A3BE /* Pods-flow-test_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F09B36DC074A2827FA04A5497833662 /* Pods-flow-test_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DB410C490E8A46F616AF7221FA28C00 /* flow-test-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87CC49C5614F142420EAB21BD03A627D /* flow-test-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6ACED2E4BD877BC90F33223D6F31765 /* KMFAspectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0618ED8894E90419464F23719876E6 /* KMFAspectHandler.m */; };
-		BD97916BA649A127BB1B75C1780120BF /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0196675F5BC28BAD53AD25A2739C49A2 /* Aspects.framework */; };
-		C562BA57D8FF4313702EDC616D95355B /* KMFMethodSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3691C182D796F6CA3CD9F0E387AC9D /* KMFMethodSpec.m */; };
-		C8D44212665A85D07F3047BDB8D09F56 /* flow-test-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 713C38D7276D3D4AB5C63EB3DF8BCC05 /* flow-test-dummy.m */; };
+		90E26E40CEBCEAE3D3786374D410B900 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31EAF799C43968C029425C994D760D0 /* XCTest.framework */; };
+		A615DB9B735D5039CD82410E11338E33 /* KMFMethodSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = FEA75DD80079C0A3A74A129D45533719 /* KMFMethodSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B29F82F7887ABB7745E221A33ED35FDC /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0196675F5BC28BAD53AD25A2739C49A2 /* Aspects.framework */; };
+		B779CBC3792A6D2A2191357A48848E0F /* KMFMethodSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9786725B19B0F24A533003D756185 /* KMFMethodSpec.m */; };
+		BE98CED303DD98D514DF1AFEE3A58907 /* KMFSpecsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8BAADEE6B750E9657308FEAFAC5C28 /* KMFSpecsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C41DF84AE3C2CF5C5C52D80FC62FEACD /* KMFTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF87F854EEA12004E35374DF97CDC031 /* KMFTestManager.m */; };
 		CC2A0F5D943ACCD8D20C309BD121C58F /* Pods-flow-test_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F372C4F9403992A310F88577FE326095 /* Pods-flow-test_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D673DE17E74B5402846F24F93527E5AE /* KMFMethodSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = A8AA515363C38ECDE371E56AE319AC5E /* KMFMethodSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D81A322DFDAFB483B0652D7DE55BEAC2 /* KMFMethodSpec+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E85F48BF4A20F879674DACF0F97D9A /* KMFMethodSpec+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DBBE2D1C6D2516DDAD349241A8804104 /* Pods-flow-test_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D72C83073BCA09C8B6BD51B3C19EFBE3 /* Pods-flow-test_Tests-dummy.m */; };
 		E29C63626E4584B0405B79979D2A4797 /* Pods-flow-test_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E32AD145FAB77886C0CA64D5E726620D /* Pods-flow-test_Example-dummy.m */; };
 		ED81DAF100FF88A709E36D2D6DC480D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F1933B105E57850DCC1473EB776EEE /* Foundation.framework */; };
 		F0AE7A90DC17757A4799C5FB36EEB83A /* Aspects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3009879A71025C8B91799FF3173C8849 /* Aspects-dummy.m */; };
-		F7EBF393D35B5C018667E6A4C1B7146E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F1933B105E57850DCC1473EB776EEE /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4584E5076270E86D26C2FB8B7EEEAE2F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 83A5B94BC80508159301CCDBA65674FC;
-			remoteInfo = "flow-test";
-		};
-		5BFD00591D2EC2DBDB76FB3EC8542EE4 /* PBXContainerItemProxy */ = {
+		01085581F3550B95B4F6245730368C6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8FE394C39AC89A793C75CF8D2E6C8643;
 			remoteInfo = Aspects;
+		};
+		4584E5076270E86D26C2FB8B7EEEAE2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D181EC6B410A37E71AC9AAEEE394E40;
+			remoteInfo = "flow-test";
 		};
 		F3F0E33ED59D0C7B73E282C002955FE5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -58,17 +60,19 @@
 
 /* Begin PBXFileReference section */
 		0196675F5BC28BAD53AD25A2739C49A2 /* Aspects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Aspects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08030A21C6A3375455F87E99E7EC959C /* KMFTestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KMFTestManager.h; sourceTree = "<group>"; };
+		0ED9786725B19B0F24A533003D756185 /* KMFMethodSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KMFMethodSpec.m; sourceTree = "<group>"; };
 		1527B267EDAE4F8F0D8548660D0245C6 /* flow-test.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "flow-test.modulemap"; sourceTree = "<group>"; };
 		1C5FF9A3AFD71B972FDC7AE2857798CF /* Pods-flow-test_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-flow-test_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1F3691C182D796F6CA3CD9F0E387AC9D /* KMFMethodSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KMFMethodSpec.m; sourceTree = "<group>"; };
+		21E85F48BF4A20F879674DACF0F97D9A /* KMFMethodSpec+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KMFMethodSpec+Internal.h"; sourceTree = "<group>"; };
 		21F1933B105E57850DCC1473EB776EEE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		236453D79E71F0F49AD80DE058C3DAD1 /* Pods-flow-test_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-flow-test_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2E16F509D6272D338FD303B89D662B0A /* Aspects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Aspects.modulemap; sourceTree = "<group>"; };
 		3009879A71025C8B91799FF3173C8849 /* Aspects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Aspects-dummy.m"; sourceTree = "<group>"; };
-		38FF0653694DEBC7D8D1F32CE33C6724 /* KMFAspectHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KMFAspectHandler.h; sourceTree = "<group>"; };
 		3E1267F378C281DD3ABEAD590ED3E055 /* Pods-flow-test_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-flow-test_Example.modulemap"; sourceTree = "<group>"; };
 		3E6537D00758CAE5CFFA9C6CAC3E9F2C /* Pods-flow-test_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-flow-test_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		4E60A81337DB5390B780FE7FAD7A833F /* Aspects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Aspects-umbrella.h"; sourceTree = "<group>"; };
+		514C2782683D3CA229E56FAC15C0DAA0 /* KMFAspectHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KMFAspectHandler.h; sourceTree = "<group>"; };
 		5DC289430C234187C23DCC29B0A1C90A /* Pods-flow-test_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-flow-test_Tests-resources.sh"; sourceTree = "<group>"; };
 		672A7A6B98D9A30F5498C7A0E511EB2C /* Pods-flow-test_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-flow-test_Example-frameworks.sh"; sourceTree = "<group>"; };
 		6DCCBD6601AF8D9F934AC170DE00D7F8 /* Pods-flow-test_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-flow-test_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -76,15 +80,14 @@
 		7222B28F24C0F026E5CD20064DB0A6FA /* flow-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "flow-test.xcconfig"; sourceTree = "<group>"; };
 		7796CFF0190FA24DC1348D80A3F75D7C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87CC49C5614F142420EAB21BD03A627D /* flow-test-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flow-test-umbrella.h"; sourceTree = "<group>"; };
-		8CA4F557D2FEB8A82A8EAA87FBD4A73B /* KMFMethodSpec+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KMFMethodSpec+Internal.h"; sourceTree = "<group>"; };
 		8E4CAF6AA18DC983593F09BEAFC52A64 /* Pods_flow_test_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_flow_test_Tests.framework; path = "Pods-flow-test_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		961803531394A06FD80114DA0C74EA7A /* flow_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = flow_test.framework; path = "flow-test.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F09B36DC074A2827FA04A5497833662 /* Pods-flow-test_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-flow-test_Example-umbrella.h"; sourceTree = "<group>"; };
-		A8AA515363C38ECDE371E56AE319AC5E /* KMFMethodSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KMFMethodSpec.h; sourceTree = "<group>"; };
 		AB544F9E9E456E79794BC15B30164370 /* Pods-flow-test_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-flow-test_Tests.modulemap"; sourceTree = "<group>"; };
 		AB948FB30609AE8E9421A60DE18BD4ED /* Pods-flow-test_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-flow-test_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD79BB6F85D34B0DDBBB37985F192232 /* Pods-flow-test_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-flow-test_Example-resources.sh"; sourceTree = "<group>"; };
+		AE8BAADEE6B750E9657308FEAFAC5C28 /* KMFSpecsManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KMFSpecsManager.h; sourceTree = "<group>"; };
 		AFFDAE92BC775876B3EFE49763638513 /* Pods-flow-test_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-flow-test_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B53B9AC60D1CB7F59A29484AA3B7872F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6F97E2575DEA47621A2E398850E361B /* Pods-flow-test_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-flow-test_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -92,20 +95,21 @@
 		BC5CB00BF6A65E5261E4B4E6EE36DD98 /* Aspects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 		BE4B8E53D11EE85E8C5F7E26C58EF365 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB7DFB9706B2E5576F5F42EE4C0F367B /* Pods-flow-test_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-flow-test_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		CC0E7DDB21B1A1E0CF7FA784D5C240A2 /* KMFTestManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KMFTestManager.m; sourceTree = "<group>"; };
 		CE8600E50AB29180B34CE67160153903 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D555756D52C46B982BCA07A4D108CFEF /* flow-test-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flow-test-prefix.pch"; sourceTree = "<group>"; };
 		D72C83073BCA09C8B6BD51B3C19EFBE3 /* Pods-flow-test_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-flow-test_Tests-dummy.m"; sourceTree = "<group>"; };
 		D80453B2EF0E41E0957FE769D386DAAD /* Aspects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		DA486B66F581C809AEB0A972D3349BB9 /* KMFAspectHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KMFAspectHandler.m; sourceTree = "<group>"; };
 		DA86AD8724A18CBAC13704E8B65D4B0C /* Pods-flow-test_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-flow-test_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		DEB1E8388CABA7088704625E2F3E000E /* Aspects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Aspects.xcconfig; sourceTree = "<group>"; };
+		DF87F854EEA12004E35374DF97CDC031 /* KMFTestManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KMFTestManager.m; sourceTree = "<group>"; };
 		E32AD145FAB77886C0CA64D5E726620D /* Pods-flow-test_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-flow-test_Example-dummy.m"; sourceTree = "<group>"; };
 		E37474B7E22785A4498449FCB0ADE514 /* Pods_flow_test_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_flow_test_Example.framework; path = "Pods-flow-test_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC0618ED8894E90419464F23719876E6 /* KMFAspectHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KMFAspectHandler.m; sourceTree = "<group>"; };
 		ED456F817173543236EBE67CD5FCB603 /* Aspects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Aspects.framework; path = Aspects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2D9E288D1E0BF070EF0AAC51243CABE /* KMFSpecsManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KMFSpecsManager.m; sourceTree = "<group>"; };
 		F31EAF799C43968C029425C994D760D0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F372C4F9403992A310F88577FE326095 /* Pods-flow-test_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-flow-test_Tests-umbrella.h"; sourceTree = "<group>"; };
-		F547E561ABAD0FDC7F7BA4CA6521C1F0 /* KMFTestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KMFTestManager.h; sourceTree = "<group>"; };
+		FEA75DD80079C0A3A74A129D45533719 /* KMFMethodSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KMFMethodSpec.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				753F4396524C0DC246218A4D0260AC03 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3087EBDEDE8D9A96C29990FA2F26AE4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B29F82F7887ABB7745E221A33ED35FDC /* Aspects.framework in Frameworks */,
+				63A4F31C99FE23828240708097173481 /* Foundation.framework in Frameworks */,
+				90E26E40CEBCEAE3D3786374D410B900 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,16 +144,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED81DAF100FF88A709E36D2D6DC480D0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C50FADA5DA8B687EBDE6BA364BB85C82 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD97916BA649A127BB1B75C1780120BF /* Aspects.framework in Frameworks */,
-				F7EBF393D35B5C018667E6A4C1B7146E /* Foundation.framework in Frameworks */,
-				0322865C1B84E53018965301B5048A38 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,21 +190,6 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		4927820DF38D51CBF59801C20104537D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				38FF0653694DEBC7D8D1F32CE33C6724 /* KMFAspectHandler.h */,
-				EC0618ED8894E90419464F23719876E6 /* KMFAspectHandler.m */,
-				A8AA515363C38ECDE371E56AE319AC5E /* KMFMethodSpec.h */,
-				1F3691C182D796F6CA3CD9F0E387AC9D /* KMFMethodSpec.m */,
-				8CA4F557D2FEB8A82A8EAA87FBD4A73B /* KMFMethodSpec+Internal.h */,
-				F547E561ABAD0FDC7F7BA4CA6521C1F0 /* KMFTestManager.h */,
-				CC0E7DDB21B1A1E0CF7FA784D5C240A2 /* KMFTestManager.m */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		4987FFD18DD58E0FB2834DEF57BC15D1 /* Pods-flow-test_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +206,15 @@
 			);
 			name = "Pods-flow-test_Tests";
 			path = "Target Support Files/Pods-flow-test_Tests";
+			sourceTree = "<group>";
+		};
+		4C2D2CA4BA11D8DFCAE7969F84CA12BE /* flow-test */ = {
+			isa = PBXGroup;
+			children = (
+				B347E5AD577EBC8146FA298B8F5C9A0D /* Classes */,
+			);
+			name = "flow-test";
+			path = "flow-test";
 			sourceTree = "<group>";
 		};
 		51EE9D20E124FA964B4A5D85FB7A9B9E /* Aspects */ = {
@@ -285,23 +283,31 @@
 			path = "Target Support Files/Pods-flow-test_Example";
 			sourceTree = "<group>";
 		};
+		B347E5AD577EBC8146FA298B8F5C9A0D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				514C2782683D3CA229E56FAC15C0DAA0 /* KMFAspectHandler.h */,
+				DA486B66F581C809AEB0A972D3349BB9 /* KMFAspectHandler.m */,
+				FEA75DD80079C0A3A74A129D45533719 /* KMFMethodSpec.h */,
+				0ED9786725B19B0F24A533003D756185 /* KMFMethodSpec.m */,
+				21E85F48BF4A20F879674DACF0F97D9A /* KMFMethodSpec+Internal.h */,
+				AE8BAADEE6B750E9657308FEAFAC5C28 /* KMFSpecsManager.h */,
+				F2D9E288D1E0BF070EF0AAC51243CABE /* KMFSpecsManager.m */,
+				08030A21C6A3375455F87E99E7EC959C /* KMFTestManager.h */,
+				DF87F854EEA12004E35374DF97CDC031 /* KMFTestManager.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		B8ADEB44A847819E73F06ACB2F6D8385 /* flow-test */ = {
 			isa = PBXGroup;
 			children = (
-				C1F619C8DFBA7F151D8E542C836867C4 /* flow-test */,
+				4C2D2CA4BA11D8DFCAE7969F84CA12BE /* flow-test */,
 				25C0477118B93121E12B0EEE1791E19D /* Support Files */,
 			);
 			name = "flow-test";
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		C1F619C8DFBA7F151D8E542C836867C4 /* flow-test */ = {
-			isa = PBXGroup;
-			children = (
-				4927820DF38D51CBF59801C20104537D /* Classes */,
-			);
-			name = "flow-test";
-			path = "flow-test";
 			sourceTree = "<group>";
 		};
 		F44F05A8F527D3FE55781A7396EFE39E /* Pods */ = {
@@ -349,15 +355,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC35BB29F4C872605AB7380342E8E6DF /* Headers */ = {
+		E4E777078A460D55A49E0FFDD1475282 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DB410C490E8A46F616AF7221FA28C00 /* flow-test-umbrella.h in Headers */,
-				0B153FDD196A22854FB991B8077EA60B /* KMFAspectHandler.h in Headers */,
-				5948E8778517F639229D2CCD71D01891 /* KMFMethodSpec+Internal.h in Headers */,
-				D673DE17E74B5402846F24F93527E5AE /* KMFMethodSpec.h in Headers */,
-				5CD06A7C37ED43B91CF1FF5585373768 /* KMFTestManager.h in Headers */,
+				47897C46EA1AF3BFB08804D1D397233F /* flow-test-umbrella.h in Headers */,
+				82C21F25E15AF6AC3641263BA019E82A /* KMFAspectHandler.h in Headers */,
+				D81A322DFDAFB483B0652D7DE55BEAC2 /* KMFMethodSpec+Internal.h in Headers */,
+				A615DB9B735D5039CD82410E11338E33 /* KMFMethodSpec.h in Headers */,
+				BE98CED303DD98D514DF1AFEE3A58907 /* KMFSpecsManager.h in Headers */,
+				528528466F748121258F16D91610FC8E /* KMFTestManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,18 +407,18 @@
 			productReference = E37474B7E22785A4498449FCB0ADE514 /* Pods_flow_test_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		83A5B94BC80508159301CCDBA65674FC /* flow-test */ = {
+		7D181EC6B410A37E71AC9AAEEE394E40 /* flow-test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CFFA606A6FB65C34710C62D24370DD8 /* Build configuration list for PBXNativeTarget "flow-test" */;
+			buildConfigurationList = 273A03E82EABB3DA8049FECCA6F28393 /* Build configuration list for PBXNativeTarget "flow-test" */;
 			buildPhases = (
-				E059E487D4EE9BDE734163DB21A42E21 /* Sources */,
-				C50FADA5DA8B687EBDE6BA364BB85C82 /* Frameworks */,
-				CC35BB29F4C872605AB7380342E8E6DF /* Headers */,
+				35CDDAE6DC32B38A4C20FF0DEE4D899A /* Sources */,
+				3087EBDEDE8D9A96C29990FA2F26AE4C /* Frameworks */,
+				E4E777078A460D55A49E0FFDD1475282 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4A39BCA3E05ED45B67F0EB943B822C68 /* PBXTargetDependency */,
+				6C336976BD13011E5398000531634CF8 /* PBXTargetDependency */,
 			);
 			name = "flow-test";
 			productName = "flow-test";
@@ -457,7 +464,7 @@
 			projectRoot = "";
 			targets = (
 				8FE394C39AC89A793C75CF8D2E6C8643 /* Aspects */,
-				83A5B94BC80508159301CCDBA65674FC /* flow-test */,
+				7D181EC6B410A37E71AC9AAEEE394E40 /* flow-test */,
 				501C39038A2B66CB74C48BA078C1F30F /* Pods-flow-test_Example */,
 				18AFEADDC2075254135A23EAA0CB1C66 /* Pods-flow-test_Tests */,
 			);
@@ -473,23 +480,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35CDDAE6DC32B38A4C20FF0DEE4D899A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				367F9E2301A922BECD01478AF56A39C4 /* flow-test-dummy.m in Sources */,
+				7274CBA3AD00EA0638C4FB392A708F4B /* KMFAspectHandler.m in Sources */,
+				B779CBC3792A6D2A2191357A48848E0F /* KMFMethodSpec.m in Sources */,
+				174B6606F172B017FEB02BD7D590A082 /* KMFSpecsManager.m in Sources */,
+				C41DF84AE3C2CF5C5C52D80FC62FEACD /* KMFTestManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		910D2040F5511BB5D5F440EB952EA5D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F0AE7A90DC17757A4799C5FB36EEB83A /* Aspects-dummy.m in Sources */,
 				1940835D23ED4933E2D6E6E1860C7CE8 /* Aspects.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E059E487D4EE9BDE734163DB21A42E21 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C8D44212665A85D07F3047BDB8D09F56 /* flow-test-dummy.m in Sources */,
-				A6ACED2E4BD877BC90F33223D6F31765 /* KMFAspectHandler.m in Sources */,
-				C562BA57D8FF4313702EDC616D95355B /* KMFMethodSpec.m in Sources */,
-				3420189B2B6FD62619F593CE21345B32 /* KMFTestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,14 +515,14 @@
 		024BF8DAA6F3C226FB5C848630E24E70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "flow-test";
-			target = 83A5B94BC80508159301CCDBA65674FC /* flow-test */;
+			target = 7D181EC6B410A37E71AC9AAEEE394E40 /* flow-test */;
 			targetProxy = 4584E5076270E86D26C2FB8B7EEEAE2F /* PBXContainerItemProxy */;
 		};
-		4A39BCA3E05ED45B67F0EB943B822C68 /* PBXTargetDependency */ = {
+		6C336976BD13011E5398000531634CF8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Aspects;
 			target = 8FE394C39AC89A793C75CF8D2E6C8643 /* Aspects */;
-			targetProxy = 5BFD00591D2EC2DBDB76FB3EC8542EE4 /* PBXContainerItemProxy */;
+			targetProxy = 01085581F3550B95B4F6245730368C6C /* PBXContainerItemProxy */;
 		};
 		86C05B879683B19EE06683F3BF3C30B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -525,70 +533,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0240D1568CCC16DC3213FB8AABFEB1F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7222B28F24C0F026E5CD20064DB0A6FA /* flow-test.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/flow-test/flow-test-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/flow-test/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/flow-test/flow-test.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = flow_test;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		14007C62EC5E0FF5AC37E6036867AE34 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7222B28F24C0F026E5CD20064DB0A6FA /* flow-test.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/flow-test/flow-test-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/flow-test/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/flow-test/flow-test.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = flow_test;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		157AF0CD5E5AB2A2E74D3B8ECD865185 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -630,6 +574,38 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2013E75B34D729E37DB6A5059A7FC77D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7222B28F24C0F026E5CD20064DB0A6FA /* flow-test.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/flow-test/flow-test-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/flow-test/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/flow-test/flow-test.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = flow_test;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -889,6 +865,38 @@
 			};
 			name = Debug;
 		};
+		DC9145990502A16EAB97A04D032D7DD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7222B28F24C0F026E5CD20064DB0A6FA /* flow-test.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/flow-test/flow-test-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/flow-test/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/flow-test/flow-test.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = flow_test;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -897,6 +905,15 @@
 			buildConfigurations = (
 				64674B33C6E80C2F9C003EE41FCA9037 /* Debug */,
 				6D89911BAB764A275E412393727C5E9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		273A03E82EABB3DA8049FECCA6F28393 /* Build configuration list for PBXNativeTarget "flow-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC9145990502A16EAB97A04D032D7DD1 /* Debug */,
+				2013E75B34D729E37DB6A5059A7FC77D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -924,15 +941,6 @@
 			buildConfigurations = (
 				871FD187D6BF9F17A7D19C53E61BDC1C /* Debug */,
 				7E715E6DCBCF07FDDF29916CF5B42589 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3CFFA606A6FB65C34710C62D24370DD8 /* Build configuration list for PBXNativeTarget "flow-test" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14007C62EC5E0FF5AC37E6036867AE34 /* Debug */,
-				0240D1568CCC16DC3213FB8AABFEB1F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
