@@ -52,9 +52,9 @@
         flowErrStr = @"The number of items called are more than what have been listed. Maybe some calls were duplicated!";
     }else if([self.calledSpecsList count] < [self.specsList count]){
         flowErrStr = @"The number of items called is less than what have been listed!";
-    }
-    
-    if(flowErrStr == nil){
+    }else{
+        // The counts of both the specs are equal!
+        // Checking for values of specsList and calledSpecsList.
         BOOL specsAreEqual = YES;
         
         // Perform the actual mapping comparision here.
@@ -82,12 +82,31 @@
         return;
     }
     
+    NSString *specsListStr = [self getSpecsListStr:self.specsList];
+    NSString *calledSpecsListStr = [self getSpecsListStr:self.calledSpecsList];
+    NSString *flowVerboserErrStr = [NSString stringWithFormat:@"%@\n*** Expected methods -\n%@\n*** Called methods - \n%@\n", flowErrStr, specsListStr, calledSpecsListStr];
+    
     // Add both the lists in a readable way here
     (*flowErr) = [NSError errorWithDomain:@"KMFTestManager"
                                      code:-2000
                                  userInfo:@{
-                                            NSLocalizedDescriptionKey: [NSBundle.mainBundle localizedStringForKey:flowErrStr value:@"" table:nil],
+                                            NSLocalizedDescriptionKey: [NSBundle.mainBundle localizedStringForKey:flowVerboserErrStr value:@"" table:nil],
                                             }];
+}
+
+- (NSString *)getSpecsListStr:(NSMutableArray<KMFMethodSpec *> *)specsList{
+    if(specsList == nil || [specsList count] == 0){
+        return @"Empty";
+    }
+    
+    NSMutableString *specStr = [[NSMutableString alloc] init];
+    NSUInteger index = 0;
+    for(KMFMethodSpec *spec in specsList){
+        [specStr appendFormat:@"%ld- %@\n", index, [spec description]];
+        index += 1;
+    }
+    
+    return [NSString stringWithString:specStr];
 }
 
 - (BOOL)areTwoSpecsEqual:(KMFMethodSpec *)firstSpec :(KMFMethodSpec *)secondSpec{
