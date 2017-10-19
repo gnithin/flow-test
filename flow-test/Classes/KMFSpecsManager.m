@@ -102,7 +102,7 @@
     NSMutableString *specStr = [[NSMutableString alloc] init];
     NSUInteger index = 0;
     for(KMFMethodSpec *spec in specsList){
-        [specStr appendFormat:@"%ld- %@\n", index, [spec description]];
+        [specStr appendFormat:@"%ld- %@\n", (unsigned long)index, [spec description]];
         index += 1;
     }
     
