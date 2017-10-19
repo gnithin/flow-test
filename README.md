@@ -65,9 +65,9 @@ The final test will look like -
 - (void)testFlowFeatureWithZero{
     // Add the class-name and the method-name that will be
     // encountered when calling `complicatedFeature`.
-    KMFAddMethodSpecsList(@[
+    KMFAddMethodSpecsList((@[
                             KMFMakeMethodSpec(@"MyFeature", @"callSampleMethod")
-                            ]);
+                            ]));
     
     // Regular tests from here on
     MyFeature *featureObj = [[MyFeature alloc] init];
@@ -100,7 +100,7 @@ When testing the flow of methods, make sure that the test-name begins with `test
 
 The methods can be specified using the classname and method selector string. It's internally called a method-spec. You can create a method-spec using the macro - `KMFMakeMethodSpec(@"classname", @"methodSelector")`.
 
-You can add a list of method-specs to assert that these selectors will be called in the order specified by the list. You need to add the method-specs list to the `KMFAddMethodSpecsList(@[...])`.
+You can add a list of method-specs to assert that these selectors will be called in the order specified by the list. You need to add the method-specs list to the `KMFAddMethodSpecsList((@[...]))`. Notice the extra-parenthesis. This is so that the macro accepts the array as a single argument, and will not unpack it. You can assign the array to another variable and pass that to the macro, if you'd prefer that :)
 
 So the flow-test for the `complicatedFeature` will look like -
 
@@ -108,10 +108,10 @@ So the flow-test for the `complicatedFeature` will look like -
 - (void)testFlowFeatureWithZero{
     // Add the class-name and the method-name that will be
     // encountered when calling `complicatedFeature`.
-    KMFAddMethodSpecsList(@[
+    KMFAddMethodSpecsList((@[
                             KMFMakeMethodSpec(@"MyFeature", @"callSampleMethod")
                             // You can add more method-specs here
-                            ]);
+                            ]));
     
     // Regular XCTestCase assertions from this point...
 }
@@ -128,11 +128,11 @@ Note that this does not mean that, only these methods need to be called! Other m
 ```ObjC
 - (void)testFlowFeatureWithMultipleMethods{
     // This asserts that first callSampleMethod will be called, followed by callMethod1 and callMethod2
-    KMFAddMethodSpecsList(@[
+    KMFAddMethodSpecsList((@[
                             KMFMakeMethodSpec(@"MyFeature", @"callSampleMethod"),
                             KMFMakeMethodSpec(@"MyFeature", @"callMethod1"),
                             KMFMakeMethodSpec(@"MyFeature", @"callMethod2"),
-                            ]);
+                            ]));
     
     // Regular tests from here on...
 }
@@ -155,9 +155,9 @@ So, in the above `MyFeature` class, if there's a `commonMethod` that's called in
 }
 
 - (void)testFlowFeatureWithZero{
-    KMFAddMethodSpecsList(@[
+    KMFAddMethodSpecsList((@[
                             KMFMakeMethodSpec(@"MyFeature", @"callSampleMethod")
-                            ]);
+                            ]));
     
     // ... Rest of the test
 }
