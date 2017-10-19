@@ -73,7 +73,7 @@
             NSLog(@"With error - %@", aspectErr);
         }
         
-        [NSException raise:@"flowTestUnexpectedMethodSpec" format:@"An unexpected method-spec was encountered! - [%@ %@]. It could be a spelling issue or it could be a static method(static methods aren't supported)", className, methodName];
+        [NSException raise:@"flowTestUnexpectedMethodSpec" format:@"An unexpected method-spec was encountered! - %@. It could be a spelling issue or it could be a static method(static methods aren't supported)", [spec description]];
         return nil;
     }
     
