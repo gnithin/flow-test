@@ -16,7 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonnull) NSString *methodSig;
 @property (nonnull) NSString *className;
 
+/// This will return a verbose description of the method-signature and class-name
 - (NSString *)description;
+
+/// This will return a succinct classname and method-signature string back.
+- (NSString *)stringShortHand;
 @end
 
 NS_ASSUME_NONNULL_END

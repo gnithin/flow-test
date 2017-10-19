@@ -9,7 +9,7 @@
 #import "KMFMethodSpec+Internal.h"
 
 @interface KMFAspectHandler()
-@property (nonatomic) NSMutableArray<id<Aspect>> *flowTestAspectsList;
+@property (nonatomic) NSMutableDictionary<NSString *, id<Aspect>> *flowTestAspectsMap;
 @end
 
 @implementation KMFAspectHandler
@@ -24,7 +24,10 @@
 
 - (instancetype)init{
     self = [super init];
-    _flowTestAspectsList = [[NSMutableArray alloc] init];
+    if(self){
+        _flowTestAspectsMap = [[NSMutableDictionary alloc] init];
+    }
+    
     return self;
 }
 
@@ -34,10 +37,13 @@
                        forSpecs:(NSArray<KMFMethodSpec *> *)specsList
 {
     for(KMFMethodSpec *spec in specsList){
-        id<Aspect> aspectObj = [self setupPointCutForSpec:spec withBlock:flowTestBlock];
-        if(aspectObj != nil){
-            [self.flowTestAspectsList addObject:aspectObj];
+        NSString *specNameStr = [spec stringShortHand];
+        if([[self.flowTestAspectsMap allKeys] containsObject:specNameStr]){
+            continue;
         }
+        
+        id<Aspect> aspectObj = [self setupPointCutForSpec:spec withBlock:flowTestBlock];
+        [self.flowTestAspectsMap setObject:aspectObj forKey:specNameStr];
     }
     return YES;
 }
@@ -78,13 +84,15 @@
 
 /// Remove point-cuts for specs
 - (BOOL)removeAllPointCuts{
-    if(self.flowTestAspectsList == nil){
+    if(self.flowTestAspectsMap == nil || [self.flowTestAspectsMap count] == 0){
         return NO;
     }
     
-    for(id<Aspect> aspectObj in self.flowTestAspectsList){
+    NSArray<id<Aspect>> *aspectsList = [self.flowTestAspectsMap allValues];
+    for(id<Aspect> aspectObj in aspectsList){
         [aspectObj remove];
     }
+    self.flowTestAspectsMap = nil;
     return YES;
 }
 

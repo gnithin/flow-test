@@ -18,6 +18,10 @@
     return instance;
 }
 
+- (NSString *)stringShortHand{
+    return [NSString stringWithFormat:@"%@->%@", self.className, self.methodSig];
+}
+
 - (NSString *)description{
     return [NSString stringWithFormat:@"[%@ %@]", self.className, self.methodSig];
 }
