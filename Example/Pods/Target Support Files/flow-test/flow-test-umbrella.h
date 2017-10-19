@@ -13,6 +13,7 @@
 #import "KMFAspectHandler.h"
 #import "KMFMethodSpec+Internal.h"
 #import "KMFMethodSpec.h"
+#import "KMFSpecsManager.h"
 #import "KMFTestManager.h"
 
 FOUNDATION_EXPORT double flow_testVersionNumber;
