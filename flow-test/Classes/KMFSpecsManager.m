@@ -44,14 +44,14 @@
 
 - (void)performFlowCheckingWithErr:(NSError **)flowErr{
     NSString *flowErrStr = nil;
-    if(self.specsList == nil){
+    if(self.specsList == nil || [self.specsList count] == 0){
         flowErrStr = @"Specs list cannot be empty!";
-    }else if(self.calledSpecsList == nil){
+    }else if(self.calledSpecsList == nil || [self.calledSpecsList count] == 0){
         flowErrStr = @"It seems none of the methods in the specs list have been called at all!";
     }else if([self.calledSpecsList count] > [self.specsList count]){
         flowErrStr = @"The number of items called are more than what have been listed. Maybe some calls were duplicated!";
     }else if([self.calledSpecsList count] < [self.specsList count]){
-        flowErrStr = @"The number of items called is less than what have been listed. Maybe some calls were duplicated!";
+        flowErrStr = @"The number of items called is less than what have been listed!";
     }
     
     if(flowErrStr == nil){
@@ -71,13 +71,18 @@
             }
         }
         
-        if(specsAreEqual){
-            return;
+        if(NO == specsAreEqual){
+            flowErrStr = [NSString stringWithFormat:@"Specs are not equal starting from index - %lu. Expected %@, got %@", (unsigned long)i, [expectedSpec description], [actualSpec description]];
         }
-        flowErrStr = [NSString stringWithFormat:@"Specs are not equal starting from index - %lu. Expected %@, got %@", (unsigned long)i, [expectedSpec description], [actualSpec description]];;
+        
     }
     
-    // TODO: Add both the lists in a readable way here
+    if(flowErrStr == nil){
+        // Passed all the tests!
+        return;
+    }
+    
+    // Add both the lists in a readable way here
     (*flowErr) = [NSError errorWithDomain:@"KMFTestManager"
                                      code:-2000
                                  userInfo:@{
