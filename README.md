@@ -180,9 +180,3 @@ gnithin, nithin.linkin@gmail.com
 ## License
 
 flow-test is available under the MIT license. See the LICENSE file for more info.
-
-
-## Issues/Pending
-
-- [ISSUE] Support for static classes as well (not possible right now, since that's not supported in the  Aspects lib itself. Have to dig around).
-- [PENDING] Test this out for swift. It should not cause too many pain-points since XCTestCase is used similarly :fingerscrossed:
