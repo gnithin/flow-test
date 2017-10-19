@@ -1,6 +1,6 @@
 # flow-test
 
-A pod to unit-test non-UI flow based on method selectors strings
+A pod to unit-test non-UI flow based on method selectors strings.
 
 ## Why
 
@@ -182,16 +182,7 @@ gnithin, nithin.linkin@gmail.com
 flow-test is available under the MIT license. See the LICENSE file for more info.
 
 
-## Tasks remaining - (To be deleted once done)
+## Issues/Pending
 
-- The error messages need to be helpful. This will need some careful, thoughtful work
-- Have a feature where you assert that certain methods are not to be called at all!
-- Arguments assertions as well in the method-specs
-- Support for static classes as well (not possible right now, in the Aspects lib. Have to dig around)
-- Make sure everything is testable.
-- Add the extra features in the README
-- CI - travis-ci for this
-- Test this out for swift. It should not cause too many pain-points since XCTestCase is used similarly :fingerscrossed: 
-    - If it does not work, then fine. Support it in future releases.
-- Update the stickers
-- Push to cocoapods
+- [ISSUE] Support for static classes as well (not possible right now, since that's not supported in the  Aspects lib itself. Have to dig around).
+- [PENDING] Test this out for swift. It should not cause too many pain-points since XCTestCase is used similarly :fingerscrossed:
