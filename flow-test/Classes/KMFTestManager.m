@@ -25,26 +25,40 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
     }
 }
 
+- (void)setUpFlowTest{
+    self.specsManager = [KMFSpecsManager getInstance];
+    
+    NSArray<KMFMethodSpec *> *specsList = [self flowMethodSpecsList];
+    [self addMethodSpecsList:specsList];
+}
+
 - (void)tearDown{
     [self tearDownFlowTest];
     [super tearDown];
 }
 
-#pragma mark - Public methods
-
-- (void)setUpFlowTest{
-    self.specsManager = [KMFSpecsManager getInstance];
-    
-    NSArray<KMFMethodSpec *> *specsList = [self flowMethodSpecsList];
-    if(specsList == nil || [specsList count] == 0){
-        specsList = nil;
+- (void)tearDownFlowTest{
+    if(self.aspectHandler == nil){
         return;
     }
-    [self addMethodSpecsList:specsList];
+    [self.aspectHandler removeAllPointCuts];
+    
+    NSError *flowErr;
+    [self.specsManager performFlowCheckingWithErr:&flowErr];
+    
+    if(flowErr != nil){
+        // Something went wrong
+        XCTFail("Failed flow-test - %@, with error - %@", self.name, [flowErr localizedDescription]);
+    }
 }
 
+#pragma mark - Public methods
+
 - (void)addMethodSpecsList:(NSArray<KMFMethodSpec *> * _Nonnull)methodSpecsList{
-    [self.specsManager updateSpecsList:methodSpecsList];
+    BOOL didUpdateSpecs = [self.specsManager updateSpecsList:methodSpecsList];
+    if(NO == didUpdateSpecs){
+        return;
+    }
     
     __weak KMFTestManager *weakSelf = self;
     void(^flowTestBlock)(NSInvocation *, KMFMethodSpec *) = ^(NSInvocation *invocation, KMFMethodSpec *spec){
@@ -64,30 +78,14 @@ static NSString *FLOW_TEST_PREFIX = @"testFlow";
     }
 }
 
-- (void)tearDownFlowTest{
-    if(self.aspectHandler == nil){
-        return;
-    }
-    
-    [self.aspectHandler removeAllPointCuts];
-    
-    // Perform flow-checking here
-    NSError *flowErr;
-    [self.specsManager performFlowCheckingWithErr:&flowErr];
-    
-    if(flowErr != nil){
-        // Something went wrong
-        XCTFail("Failed flow-test - %@, with error - %@", self.name, [flowErr localizedDescription]);
-    }
-}
-
-/// This is a method that'll be implemented by the sub-class
+// This is a method that'll be implemented by the sub-class
 - (NSArray<KMFMethodSpec *> *)flowMethodSpecsList{
     return nil;
 }
 
 #pragma mark - Helpers
 
+/// Returns if the current test name begins with `testFlow`.
 - (BOOL)doesTestNameBeginWithFlow{
     NSString *fullTestName = [self.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *testNameStr = [[fullTestName componentsSeparatedByString:@" "] lastObject];
