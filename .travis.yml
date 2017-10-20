@@ -18,5 +18,6 @@ branches:
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/flow-test.xcworkspace -scheme flow-test-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/flow-test.xcworkspace -scheme flow-test-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6' ONLY_ACTIVE_ARCH=NO | xcpretty
+
 - pod lib lint
